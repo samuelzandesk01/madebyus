@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: rgb(22, 22, 22) !important;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+body {
+  /* background-color: rgba(240, 240, 240, 0.883); */
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif !important;
+}
+
+[kc] {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: 2px solid rgb(24, 24, 24);
+  margin: 25px;
+}
+
+@media screen and (max-width: 1000px) {
+  .side-menu {
+    display: none;
+    transition: all 0.3 ease-in-out;
+  }
+}
+
+.my-p {
+  padding: 10px;
+}
+
+.bag-img {
+  padding-top: 74vh;
+  padding-left: 25px;
+}
+
+#menuToggle {
+  display: block;
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.input-holder {
+  width: 70%;
+  padding: 6px;
+  height: 20px;
+  margin: 10px;
+}
+
+.input-holder:focus {
+  outline: none;
+  border: 1px solid rgba(255, 99, 71, 0.5);
+  transition: all 0.9s;
+}
+
+.input-button {
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px 40px 10px 40px;
+}
+
+.checkbox {
+  padding: 20px;
+}
+
+#menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -7px;
+  left: -5px;
+
+  cursor: pointer;
+
+  opacity: 0; /* hide this */
+  z-index: 2; /* and place it over the hamburger */
+
+  -webkit-touch-callout: none;
+}
+
+/*
+    * Just a quick hamburger
+    */
+#menuToggle span {
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background: #ffffff00;
+  border-radius: 3px;
+
+  z-index: 1;
+
+  transform-origin: 4px 0px;
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+
+/* 
+    * Transform all the slices of hamburger
+    * into a crossmark.
+    */
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: #232323;
+}
+
+/*
+    * But let's hide the middle one.
+    */
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+    * Ohyeah and the last one should go the other direction
+    */
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  opacity: 1;
+  transform: rotate(-45deg) translate(0, -1px);
+}
+
+/*
+    * Make this absolute positioned
+    * at the top left of the screen
+    */
+#menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 0;
+  padding: 50px;
+  padding-top: 125px;
+  right: -100px;
+  height: 100vh;
+  background: #ededed;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
+
+  transform-origin: 0% 0%;
+  transform: translate(100%, 0);
+
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#menu li {
+  padding: 10px 0;
+  font-size: 22px;
+}
+
+/*
+    * And let's fade it in from the left
+    */
+#menuToggle input:checked ~ ul {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.side-menu {
+  position: fixed;
+  width: 7%;
+  height: 100vh;
+  background-color: white;
+  box-shadow: 3px 1px 8px 1px #e2e2e2;
+}
+
+.img-wrapper {
+  margin-top: 28%;
+}
+
+.circle {
+  cursor: pointer;
+  position: absolute;
+  width: 430px;
+  transition: all 0.4s ease-in;
+  height: 430px;
+  background-color: #f1f1f1;
+  border-radius: 300px;
+  left: 20%;
+}
+
+.my-mt {
+  margin-top: 20%;
+}
+
+.mir-img {
+  transform: rotate(-20deg);
+}
+#cart-img:hover {
+  transition: all 0.3s;
+  transform: rotate(-5deg);
+}
+.leather {
+  font-size: 70px !important;
+  transition: all 1s ease;
+  font-family: Bookman Old Style;
+}
+
+.img-icon {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 400px;
+}
+.img-icon:hover {
+  transition: all 0.3s;
+  transform: rotate(-20deg);
+  border: 2px solid rgb(197, 197, 197);
+  background-color: rgb(197, 197, 197);
+}
+
+
+.watch {
+  width: 5%;
+  height: 100vh;
+  background-color: transparent;
+  box-shadow: 1px 0px 6px 1px #e8e8e8;
+}
+
+/* Logo style */
+.logo{
+  width: 40px;
+  height: 40px;
+  border: 1px solid gray;
+  margin: 5px;
+}
+
+
+
+/* Bag style */
+.bag{
+  padding-top: 600px;
+  margin: 5px;
+}

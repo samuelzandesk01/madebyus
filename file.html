@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *, body,form{
+            font-family:century gothic;
+            text-decoration:none !important;
+            list-style-type: none !important;
+        }
+
+        ul li{
+            display: table;
+            text-align: center;
+            text-align: left;
+        }
+
+        #passInError,
+        #errorUser,
+        #passError{
+            color: rgb(255, 121, 121);
+        }
+
+        ul li:hover{
+            color: rgb(8, 8, 8);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        form{
+            text-align: center;
+            width: 45%;
+            margin: 30px auto;
+            display: block;
+            text-decoration:none !important;
+            list-style-type: none !important;
+        }
+        input[type=text],
+        input[type=password]{
+            width: 100%;
+        }
+    </style>
+
+    <div>
+        
+        <form  name="register" action="" onsubmit="return validateForm() " method="post">
+            <div>
+                <a href="">
+                    <img src="img/lol.png" id="logo" width="40" alt="">
+                </a>
+                <h4>Sign Up</h4>
+            </div>
+            <div id="errorUser"></div>
+            <div>
+                <input 
+                type="text" 
+                placeholder="Enter you name"  
+                name="name"
+                />
+            </div>
+            <br>
+            <div>
+                <input 
+                type="password" 
+                id="viewPass" 
+                placeholder="Enter Password at least 8 characters"  
+                oncopy="return false" onpaste="return false" onselect="return false" ondrag="return false"
+                name="pass"
+                >
+                <div id="passError"></div>
+            </div>
+            <br>
+            <div>
+                <input type="password" id="viewPass" placeholder="Repeat Password"  name="pass2" oncopy="return false" onpaste="return false" onselect="return false" ondrag="return false">
+                <div id="passInError"></div>
+            </div>
+            <br>
+            <div>
+                <input type="checkbox" onclick="viewPassword()" >View Password
+            </div>
+            <br>
+            
+            <div>
+                <button type="submit">Login</button>
+            </div>
+            <ul>
+                <li onclick="bgChanged();">Dark Mode</li>
+                <li onclick="bgChange();">Light Mood</li>
+            </ul>
+        </form>
+    </div>
+
+
+    <script>
+        const validateForm = () => {
+
+            var username = document.register.name.value;
+            
+            var pass = document.register.pass.value;
+
+            var passTwo = document.register.pass2.value;
+
+            if(username == null || username == ""){
+                document.getElementById("errorUser").textContent = "Please input fields are required" ;
+                return false;
+            }else if(pass.length < 8){
+                document.getElementById("passError").textContent = "Please make characters up to 8 or more";
+                return false;
+            }else if(pass !== passTwo){
+                document.getElementById("passInError").textContent = "Password incorrect..";
+                return false;
+            }
+        }
+
+        const viewPassword = () =>{
+            var x = document.getElementById("viewPass");
+            if(x.type === "password"){
+                x.type = "text";
+            }else{
+                x.type = "password";
+            }
+        }
+
+
+        const bgChange = () =>{
+            document.querySelector("body").style.background = "#f9f9f9";
+            document.querySelector("body").style.transition = "all 0.3s ease";
+            document.querySelector("body").style.color = "black";
+            document.querySelector("img").src = "img/lol.png";
+
+
+        }
+       const bgChanged = () =>{
+            document.querySelector("body").style.background = "#1d1d1d";
+            document.querySelector("body").style.color = "white";
+            document.querySelector("img").src = "img/logo-white.png";
+
+
+        }
+    </script>
+    
+</body>
+</html>
